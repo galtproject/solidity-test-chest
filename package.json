@@ -1,0 +1,15 @@
+{
+  "name": "solidity-test-chest",
+  "version": "1.0.0",
+  "description": "Solidity Test helpers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "web3-eth": "^1.2.1",
+    "web3-utils": "^1.2.1"
+  }
+}
