@@ -9,6 +9,7 @@ module.exports = function(web3) {
   const defaultDiffError = new BN  ('10000000000000000');
   const web3Utils = web3.utils;
   const web3Eth = web3.eth;
+  const provider = web3.currentProvider;
 
   const Converters = {
     zeroAddress: '0x0000000000000000000000000000000000000000',
