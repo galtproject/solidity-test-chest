@@ -10,6 +10,7 @@ module.exports = function(web3) {
   const web3Utils = web3.utils;
   const web3Eth = web3.eth;
   const provider = web3.currentProvider;
+  const assert = require('assert');
 
   const Converters = {
     zeroAddress: '0x0000000000000000000000000000000000000000',
