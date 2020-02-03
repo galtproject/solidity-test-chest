@@ -212,5 +212,19 @@ module.exports = function(web3) {
     },
   };
 
-  return { ...Converters, ...Web3Helpers, ...Assertions, ...Printers };
+  const Parsers = {
+    getEventArg(res, eventName, argName) {
+      for (let i = 0; i < res.logs.length; i++) {
+        const current = res.logs[i];
+
+        if (eventName === current.event) {
+          return current.args[argName];
+        }
+      }
+
+      throw new Error(`Event ${eventName} not found`);
+    }
+  };
+
+  return { ...Converters, ...Web3Helpers, ...Assertions, ...Printers, ...Parsers };
 };
