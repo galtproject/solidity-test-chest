@@ -82,6 +82,14 @@ module.exports = function(web3) {
         );
       });
     },
+    /**
+     * Returns the latest block timestamp
+     * @returns number
+     */
+    async now() {
+      const latestBlock = await web3.eth.getBlock('latest');
+      return parseInt(latestBlock.timestamp, 10);
+    }
   };
 
   const Assertions = {
