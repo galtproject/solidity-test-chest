@@ -93,6 +93,10 @@ module.exports = function(web3) {
     async now() {
       const latestBlock = await web3.eth.getBlock('latest');
       return parseInt(latestBlock.timestamp, 10);
+    },
+    async getResTimestamp(txResponse) {
+      const latestBlock = await web3.eth.getBlock(txResponse.receipt.blockNumber);
+      return parseInt(latestBlock.timestamp, 10);
     }
   };
 
