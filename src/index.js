@@ -82,6 +82,10 @@ module.exports = function(web3) {
         );
       });
     },
+    async increaseTime(seconds) {
+      await Web3Helpers.evmIncreaseTime(seconds);
+      await Web3Helpers.evmMineBlock();
+    },
     /**
      * Returns the latest block timestamp
      * @returns number
