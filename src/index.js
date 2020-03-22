@@ -111,6 +111,20 @@ module.exports = function(web3) {
       }
       assert.fail('Expected INVALID (0xfe) not received');
     },
+    async assertGsnReject(promise, msg = '', isRegex = true) {
+      try {
+        await promise;
+      } catch (error) {
+        const search = isRegex ? 'search' : 'indexOf';
+        const gsnError = error.message[search]('error 11') >= 0;
+        if (msg.length > 0) {
+          assert(error.message[search](msg) >= 0, `Expected GSN reject with "${msg}" message, got "${error}" instead`);
+        }
+        assert(gsnError, `Expected GSN reject, got '${error}' instead`);
+        return;
+      }
+      assert.fail(`Expected GSN reject not received: ${msg || 'without a message'}`);
+    },
     async assertRevert(promise, msg = '', isRegex = true) {
       try {
         await promise;
