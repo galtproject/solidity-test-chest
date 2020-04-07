@@ -111,7 +111,7 @@ module.exports = function(web3) {
       }
       assert.fail('Expected INVALID (0xfe) not received');
     },
-    async assertGsnReject(promise, msg = '', isRegex = true) {
+    async assertGsnReject(promise, expectedCode = 11, msg = '', isRegex = true) {
       try {
         await promise;
       } catch (error) {
