@@ -117,6 +117,15 @@ module.exports = function(web3) {
       } catch (error) {
         const search = isRegex ? 'search' : 'indexOf';
         const gsnError = error.message[search]('was rejected with error') >= 0;
+        const match = error.message.match(/error (\d+)/);
+        assert(match && match[1], `Expected GSN reject, got '${error}' instead`);
+        const actualCode = parseInt(match[1], 10);
+        assert(actualCode >= 11, 'Actual code should be greater or equal to 11')
+        assert(
+            actualCode === parseInt(expectedCode, 10),
+            `GSN reject code ${actualCode} doesn't match expected ${expectedCode}`
+        )
+
         if (msg.length > 0) {
           assert(error.message[search](msg) >= 0, `Expected GSN reject with "${msg}" message, got "${error}" instead`);
         }
