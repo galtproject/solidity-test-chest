@@ -116,7 +116,7 @@ module.exports = function(web3) {
         await promise;
       } catch (error) {
         const search = isRegex ? 'search' : 'indexOf';
-        const gsnError = error.message[search]('error 11') >= 0;
+        const gsnError = error.message[search]('was rejected with error') >= 0;
         if (msg.length > 0) {
           assert(error.message[search](msg) >= 0, `Expected GSN reject with "${msg}" message, got "${error}" instead`);
         }
