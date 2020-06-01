@@ -9,6 +9,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@galtproject/eslint-config-galt": "^1.1.0"
+    "@galtproject/eslint-config-galt": "github:galtproject/eslint-config-galt#ae71c5c49fa0e6b42fe40e89ec2825be19fb30e8"
   }
 }
