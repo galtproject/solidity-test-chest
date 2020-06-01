@@ -35,7 +35,7 @@ module.exports = function(web3) {
     bytes32ToEvmWord(bytes32) {
       return web3Utils.padRight(bytes32, 64);
     },
-    function callRevertReason(hex) {
+    callRevertReason(hex) {
       return web3Eth.abi.decodeParameter('string', `0x${hex.substring(10)}`);
     },
     async sleep(timeout) {
